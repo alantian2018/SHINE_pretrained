@@ -49,6 +49,7 @@ def create_parser():
     )
 
 
+
     return parser
 
 
@@ -141,7 +142,7 @@ def dataset(INPUT_PATH, esm1b_PATH,out_root):
         embs = {"emb":out, 'label':label}
         #if (idx%2000==0 ):
          #   print (embs,embs['emb'].shape)
-        transcript = f'{idx+1}_{transcript}'
+        transcript = f'{5000+idx+1}_{transcript}'
         OUT_PATH = path.join (out_root, transcript)+".pt"
         torch.save (embs , OUT_PATH)
 

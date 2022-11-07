@@ -23,10 +23,10 @@ class load_data(Dataset):
 
         return emb, label
 
-def plot_roc(_preds, _labels,plot,fold):
+def plot_roc(preds, labels,plot,fold):
     # plot ROC curve
-    _preds = torch.reshape(_preds, (-1,))
-    fpr, tpr, threshold = metrics.roc_curve(_labels.cpu().numpy(), _preds.cpu().numpy())
+    _preds = torch.reshape(preds, (-1,))
+    fpr, tpr, threshold = metrics.roc_curve(labels.cpu().detach().numpy(), preds.cpu().detach().numpy())
     roc_auc = metrics.auc(fpr, tpr)
    # print ('ROC_AUC {:.2f}'.format (roc_auc))
 

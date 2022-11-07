@@ -26,7 +26,7 @@ class load_data(Dataset):
 def plot_roc(_preds, _labels,plot,fold):
     # plot ROC curve
     _preds = torch.reshape(_preds, (-1,))
-    fpr, tpr, threshold = metrics.roc_curve(_labels.cpu().numpy(), _preds.cpu().numpy())
+    fpr, tpr, threshold = metrics.roc_curve(_labels.cpu().detach().numpy(), _preds.cpu().detach().numpy())
     roc_auc = metrics.auc(fpr, tpr)
    # print ('ROC_AUC {:.2f}'.format (roc_auc))
 

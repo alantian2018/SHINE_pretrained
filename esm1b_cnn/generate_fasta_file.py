@@ -37,6 +37,7 @@ def main (args):
     print (ESM_dirs)
     df = pd.read_csv(INPUT_PATH, sep='\t', header=0, keep_default_na=False)
     l = set()
+    print (len(df))
     for idx, line in df.iterrows():
         fn = os.path.join (ESM_dirs,line['transcript_id'])+'.fasta'
         if (not os.path.exists (fn)):
